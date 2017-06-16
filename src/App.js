@@ -68,10 +68,7 @@ class App extends Component {
   }
 }
 
-class Search extends Component {
-  render() {
-    const { value, onChange, children } = this.props
-    return (
+const Search = ({ value, onChange, children }) =>
       <form>
         {children} <input
           type="text"
@@ -79,14 +76,8 @@ class Search extends Component {
           onChange={onChange}
         />
       </form>
-    )
-  }
-}
 
-class Table extends Component {
-  render() {
-    const { list, pattern, onDissmiss } = this.props
-    return (
+const Table = ({ list, pattern, onDissmiss  }) =>
       <div>
         { list.filter(isSearched(pattern)).map(item => 
             <div key={item.objectID}>
@@ -104,28 +95,14 @@ class Table extends Component {
             </div>
         )}
       </div>
-    )
-  }
-}
 
-class Button extends Component {
-  render() {
-    const {
-      onClick,
-      className = '',
-      children,
-    } = this.props
-
-    return (
+const Button = ({ onClick, className = '', children }) =>
       <button
-       onClick={onClick}
-       className={className}
-       type="button"
+        onClick={onClick}
+        className={className}
+        type="button"
       >
         {children}
       </button>
-    )
-  }
-}
 
 export default App;
